@@ -1,0 +1,22 @@
+{
+  "name": "modahousecoffee",
+  "version": "1.0.0",
+  "description": "nodejs, expressjs, restful api, fullstack",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/congdanh0101/moda-house-coffee.git"
+  },
+  "author": "Bui Cong Danh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/congdanh0101/moda-house-coffee/issues"
+  },
+  "homepage": "https://github.com/congdanh0101/moda-house-coffee#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
