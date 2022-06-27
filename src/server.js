@@ -1,6 +1,6 @@
 const express = require('express')
 const hbs = require('express-handlebars')
-require('dotenv').config()
+// require('dotenv').config()
 const db = require('./config/database')
 const morgan = require('morgan')
 const route = require('./route/index.route')
