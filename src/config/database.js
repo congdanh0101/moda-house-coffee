@@ -1,6 +1,7 @@
 const mongooes = require('mongoose')
 require('dotenv').config()
 
+
 async function connectDB() {
     try {
         await mongooes.connect(process.env.DB_URL, {

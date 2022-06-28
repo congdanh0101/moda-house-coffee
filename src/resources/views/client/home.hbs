@@ -1,0 +1,45 @@
+<style>
+	img {
+		width: 50%;
+		height: 350px;
+	}
+
+	.list-group-item {
+		color: black;
+		font-size: 24px;
+	}
+</style>
+
+<div class="col-lg-3 my-4">
+	<div class="card mb-4"
+		style="box-shadow: 0 1px 2px rgb(102, 174, 177); background-color: #e0f7ff">
+		<p class="card-header" style="font-size: 2rem; font-weight: 700;">Danh
+			mục</p>
+		<div class="list-group list-group-flush">
+			<a href="/" class="list-group-item">Tất cả sản phẩm</a>
+			{{#each category}}
+			<a href="/category/{{this._id}}" class="list-group-item">{{this.name}}</a>
+			{{/each}}
+		</div>
+	</div>
+</div>
+
+<div class="col-lg-9 my-4">
+	<div class="row">
+		{{#each drink}}
+		<div class="col-lg-4 col-md-6 mb-4">
+			<div class="card h-100 ">
+				<a href="/drink/{{this._id}}"> <img src="{{this.image}}" alt=" "
+						class="card-img-top ">
+				</a>
+				<div class="card-body ">
+					<h4 class="card-title ">
+						<a href="/drink/{{this._id}}">{{this.name}}</a>
+					</h4>
+					<h5 style="color: red; font-weight: bold;">{{formatCurrency this.price}}</h5>
+				</div>
+			</div>
+		</div>
+		{{/each}}
+	</div>
+</div>
