@@ -31,16 +31,19 @@ class DrinkController {
       .catch((err) => res.json({ mess: "Update failure" }));
   }
   getByCategory(req, res, next) {
-    Drink.find({ category: req.params.id })
+    Drink.find({ category: req.params.slug })
       .then((drink) => res.json(drink))
       .catch(next);
   }
 
-  getDrinkByID(req,res,next){
-      Drink.findById(req.params.id)
-      .then(drink => res.render('client/drink',{
-          drink:mongooseToObject(drink)
-      })).catch(next)
+  getDrinkBySlug(req, res, next) {
+    Drink.findOne({ slug: req.params.slug })
+      .then((drink) =>
+        res.render("client/drink", {
+          drink: mongooseToObject(drink),
+        })
+      )
+      .catch(next);
   }
 }
 

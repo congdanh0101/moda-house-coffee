@@ -22,14 +22,21 @@ class HomeController {
     // })
   }
   getByCategory(req, res, next) {
-    Promise.all([Drink.find({ category: req.params.id }), Category.find({})])
-      .then(([drink, category]) =>
-        res.render("client/home", {
-          drink: multipleMongooseToObject(drink),
-          category: multipleMongooseToObject(category),
-        })
-      )
-      .catch(next);
+    Category.find({ slug: req.params.slug }, (error, data) => {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log(data[0]._id);
+        Promise.all([Drink.find({ category: data[0]._id }), Category.find({})])
+          .then(([drink, category]) =>
+            res.render("client/home", {
+              drink: multipleMongooseToObject(drink),
+              category: multipleMongooseToObject(category),
+            })
+          )
+          .catch(next);
+      }
+    });
   }
 }
 
